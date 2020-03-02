@@ -24,15 +24,10 @@ public class DonutController {
         return donutService.getAllDonuts();
     }
 
-    //TODO implement create method
-
     @PostMapping("/donut") // post is the HTTP method
     public Donut createDonut(@RequestBody Donut donut){ // "create" aligns with create in CRUD
         return donutService.createDonut(donut);
     }
-
-
-    //TODO implement update method
 
 
     @PutMapping("/donut/{id}") //working put method, thank you Sofia!
@@ -46,14 +41,11 @@ public class DonutController {
         return donutRepo.findById(id);
     }
 
-    //TODO implement individual read method
 
     @GetMapping("/donut/{id}")
     public Optional<Donut> getDonut(@PathVariable Long id){
      return donutService.getDonut(id);
     }
-
-    //TODO implement delete method
 
     @DeleteMapping("/donut/{id}")
     public void deleteDonut(@PathVariable Long id){
