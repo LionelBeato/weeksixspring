@@ -19,6 +19,7 @@ public class DonutController {
 
 
     //get method
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/donuts")
     public Iterable getAllDonuts(){
         return donutService.getAllDonuts();
