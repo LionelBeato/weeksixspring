@@ -12,8 +12,6 @@ public class Runner implements CommandLineRunner {
     @Autowired
     DonutRepo donutRepo;
 
-
-
     @Override
     public void run(String... args) throws Exception {
 
@@ -21,35 +19,7 @@ public class Runner implements CommandLineRunner {
         donutRepo.save(new Donut("Glazed", true, Type.YEAST));
         donutRepo.save(new Donut("Strawberry Glazed", true, Type.YEAST));
         donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-        donutRepo.save(new Donut("Chocolate Glazed", true, Type.CAKE));
-
-
+        donutRepo.save(new Donut("Old Plain", false, Type.YEAST));
 
     }
 }

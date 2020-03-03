@@ -17,7 +17,7 @@ fetch('http://localhost:8080/donuts')
             // console.log(json[el].name)
             let tbody = document.querySelector("tbody")
             let tr = document.createElement("tr")
-            tr.innerHTML = `<td>${json[el].id}</td><td>${json[el].name}</td><td>${json[el].frosted}</td><td>${json[el].donutType}</td>`
+            tr.innerHTML = `<td>${json[el].id}</td><td>${json[el].name}</td><td>${json[el].frosted ? 'frosted' : 'not frosted'}</td><td>${json[el].donutType}</td>`
             tbody.appendChild(tr)
         }
     })
