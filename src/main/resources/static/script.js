@@ -17,13 +17,28 @@ fetch('http://localhost:8080/donuts')
             // console.log(json[el].name)
             let tbody = document.querySelector("tbody")
             let tr = document.createElement("tr")
+            tr.className = `row-${json[el].id}`
             tr.innerHTML = `<td>${json[el].id}</td>
             <td>${json[el].name}</td>
             <td>${json[el].frosted ? 'frosted' : 'not frosted'}</td>
             <td>${json[el].donutType}</td>
-            <td><i class="fa fa-trash"></i></td>
-            <td><i class="fas fa-pencil-alt"></i></td>`
+            <td><i class="fa fa-trash" style="cursor:pointer" onclick="deleteItem(${json[el].id})"></i></td>
+            <td><i class="fas fa-pencil-alt" onclick="updateItem()"></i></td>`
             tbody.appendChild(tr)
         }
     })
+
+
+    const deleteItem = (id) => {
+        document.querySelector(`.row-${id}`).remove()
+       fetch(`http://localhost:8080/donut/${id}`, {
+           method: 'DELETE',
+       })
+       .then(response => response.json)
+       .then(json => console.log(json))
+    }
+
+    const updateItem = () => {
+        console.log("update works")
+    }
 
