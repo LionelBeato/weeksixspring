@@ -17,28 +17,64 @@ fetch('http://localhost:8080/donuts')
             // console.log(json[el].name)
             let tbody = document.querySelector("tbody")
             let tr = document.createElement("tr")
-            tr.className = `row-${json[el].id}`
+            tr.classList = `row-${json[el].id} item`
             tr.innerHTML = `<td>${json[el].id}</td>
             <td>${json[el].name}</td>
             <td>${json[el].frosted ? 'frosted' : 'not frosted'}</td>
             <td>${json[el].donutType}</td>
-            <td><i class="fa fa-trash" style="cursor:pointer" onclick="deleteItem(${json[el].id})"></i></td>
-            <td><i class="fas fa-pencil-alt" onclick="updateItem()"></i></td>`
+            <td><i class="fa fa-trash icon-${json[el].id}" style="cursor:pointer" onclick="deleteItem(${json[el].id})"></i></td>
+            <td><i class="fas fa-pencil-alt icon-${json[el].id}" onclick="updateItem()"></i></td>`
             tbody.appendChild(tr)
         }
     })
 
 
+
+    // delete method that is tied to the trashcan icon
+
     const deleteItem = (id) => {
-        document.querySelector(`.row-${id}`).remove()
+        let item = document.querySelector(`.row-${id}`)
        fetch(`http://localhost:8080/donut/${id}`, {
            method: 'DELETE',
        })
-       .then(response => response.json)
-       .then(json => console.log(json))
+       .then(item.remove())
+       .then(console.log(`this works`))
+       
+
     }
+
+    // update method that will be tied to pencil icon
 
     const updateItem = () => {
         console.log("update works")
     }
 
+
+
+
+
+    const addItem = () => {
+
+    let nameInput = document.getElementById("name").value
+    let frostedInput = document.getElementById("frosted").value
+    let typeInput = document.getElementById("type").value
+
+
+    let sampleDonut = {
+            name: nameInput,
+            frosted: frostedInput,
+            donutType: typeInput
+    }
+
+        console.log(sampleDonut)
+        fetch(`http://localhost:8080/donut`, {
+            headers: { 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json' 
+            },
+            method: 'POST',
+            body: JSON.stringify(sampleDonut)
+        
+        }).then(console.log("cake posted!"))
+
+    }
