@@ -52,6 +52,8 @@ fetch('http://localhost:8080/donuts')
 
 
 
+    // this add method works completely fine! 
+
 
     const addItem = () => {
 
@@ -76,5 +78,6 @@ fetch('http://localhost:8080/donuts')
             body: JSON.stringify(sampleDonut)
         
         }).then(console.log("cake posted!"))
+        .then(location.reload())
 
     }
