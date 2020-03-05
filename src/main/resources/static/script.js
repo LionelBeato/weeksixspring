@@ -21,7 +21,12 @@ fetch('http://localhost:8080/donuts')
             tr.classList = `row-${json[el].id} item`
             tr.innerHTML = `<td>${json[el].id}</td>
             <td id="${json[el].id}-name">${json[el].name}</td>
-            <td id="${json[el].id}-frosted">${json[el].frosted}</td>
+            <td id="${json[el].id}-frosted">
+            ${json[el].frosted ? "frosted" : "not frosted"}
+            <label class="checkbox">
+            <input id="${json[el].id}-checkbox" type="checkbox" ${json[el].frosted ? "checked" : ""}>
+          </label>
+            </td>
             <td id="${json[el].id}-type">${json[el].donutType}</td>
             <td><i class="fa fa-trash icon-${json[el].id}" style="cursor:pointer" onclick="deleteItem(${json[el].id})"></i></td>
             <td><i class="fas fa-pencil-alt icon-${json[el].id}" style="cursor:pointer" onclick="updateItem(${json[el].id})"></i></td>
@@ -45,17 +50,23 @@ const deleteItem = (id) => {
 
 }
 
-// update method that will be tied to pencil icon
+// update function that will be tied to pencil icon
+// this function will allow the text in our rows to be editable
 
 const updateItem = (id) => {
     let item = document.querySelector(`.row-${id}`)
     item.toggleAttribute("contenteditable")
 
+
 }
+
+
+// save function that calls the PUT HTTP method
+// it takes the innertext in our row elements and saves it to our backend
 
 const saveItem = (id) => {
     let nameInput = document.getElementById(`${id}-name`).innerText
-    let frostedInput = document.getElementById(`${id}-frosted`).innerText 
+    let frostedInput = (document.getElementById(`${id}-checkbox`).checked ? true : false)
     let typeInput = document.getElementById(`${id}-type`).innerText
 
     let sampleDonut = {
@@ -74,8 +85,8 @@ const saveItem = (id) => {
         method: 'PUT',
         body: JSON.stringify(sampleDonut)
     })
-    .then(response => response.json)
-    .then(json => console.log(json))
+        .then(response => response.json)
+        .then(json => console.log(json))
 }
 
 
@@ -87,7 +98,7 @@ const saveItem = (id) => {
 const addItem = () => {
 
     let nameInput = document.getElementById("name").value
-    let frostedInput = document.getElementById("frosted").value
+    let frostedInput = (document.getElementById(`checkbox`).checked ? true : false)
     let typeInput = document.getElementById("type").value
 
 
