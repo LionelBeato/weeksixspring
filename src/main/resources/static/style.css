@@ -24,6 +24,11 @@ td {
     margin-top:15px;
 }
 
+@media only screen and (max-width: 750px) {
+    body {
+      background-color: lightblue;
+    }
+  }
 
 
 

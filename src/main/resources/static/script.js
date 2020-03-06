@@ -1,4 +1,7 @@
 
+let Url = "stormy-tundra-12640.herokuapp.com/"
+
+
 
 console.log("This script works!")
 
@@ -9,7 +12,7 @@ console.log("This script works!")
 //     tbody.appendChild(tr);
 // }))
 
-fetch('http://localhost:8080/donuts')
+fetch(`/donuts`)
     .then(response => response.json())
     .then(json => {
         for (el in json) {
@@ -40,7 +43,7 @@ fetch('http://localhost:8080/donuts')
 
 const deleteItem = (id) => {
     let item = document.querySelector(`.row-${id}`)
-    fetch(`http://localhost:8080/donut/${id}`, {
+    fetch(`/donut/${id}`, {
         method: 'DELETE',
     })
         .then(item.remove())
@@ -76,7 +79,7 @@ const saveItem = (id) => {
 
     console.log(sampleDonut)
 
-    fetch(`http://localhost:8080/donut/${id}`, {
+    fetch(`/donut/${id}`, {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -109,7 +112,7 @@ const addItem = () => {
     }
 
     console.log(sampleDonut)
-    fetch(`http://localhost:8080/donut`, {
+    fetch(`/donut`, {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
