@@ -22,7 +22,6 @@ fetch('http://localhost:8080/donuts')
             tr.innerHTML = `<td>${json[el].id}</td>
             <td id="${json[el].id}-name">${json[el].name}</td>
             <td id="${json[el].id}-frosted">
-            ${json[el].frosted ? "frosted" : "not frosted"}
             <label class="checkbox">
             <input id="${json[el].id}-checkbox" type="checkbox" ${json[el].frosted ? "checked" : ""}>
           </label>
@@ -87,6 +86,7 @@ const saveItem = (id) => {
     })
         .then(response => response.json)
         .then(json => console.log(json))
+        .then(location.reload())
 }
 
 

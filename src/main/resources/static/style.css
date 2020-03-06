@@ -10,6 +10,22 @@
     flex:0;
 } */
 
+td {
+    white-space: nowrap;
+}
+
+.input-title{
+    float: left;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+
+#checkbox{
+    margin-top:15px;
+}
+
+
+
 
 
 
